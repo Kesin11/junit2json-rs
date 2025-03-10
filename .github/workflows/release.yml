@@ -82,7 +82,7 @@ jobs:
             target: x86_64-unknown-linux-gnu
             bin: junit2json
           - os: ubuntu-24.04
-            target: wasm32-wasi
+            target: wasm32-wasip1
             bin: junit2json.wasm
           - os: macos-15
             target: x86_64-apple-darwin
@@ -101,7 +101,7 @@ jobs:
 
       - name: Build
         run: |
-          if [[ "${{ matrix.job.target }}" == "wasm32-wasi" ]]; then
+          if [[ "${{ matrix.job.target }}" == "wasm32-wasip1" ]]; then
             cargo install cargo-wasi
             cargo wasi build --release --target ${{ matrix.job.target }}
           else
