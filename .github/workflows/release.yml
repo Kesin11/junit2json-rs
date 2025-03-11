@@ -100,13 +100,7 @@ jobs:
         run: rustup target add ${{ matrix.job.target }}
 
       - name: Build
-        run: |
-          if [[ "${{ matrix.job.target }}" == "wasm32-wasip1" ]]; then
-            rustup target add wasm32-wasip1
-            cargo build --release --target ${{ matrix.job.target }}
-          else
-            cargo build --release --target ${{ matrix.job.target }}
-          fi
+        run: cargo build --release --target ${{ matrix.job.target }}
 
       - name: Upload assets
         run: |

@@ -84,13 +84,7 @@ jobs:
         run: rustup target add ${{ matrix.job.target }}
 
       - name: Build
-        run: |
-          if [[ "${{ matrix.job.target }}" == "wasm32-wasip1" ]]; then
-            rustup target add wasm32-wasip1
-            cargo build --release --target ${{ matrix.job.target }}
-          else
-            cargo build --release --target ${{ matrix.job.target }}
-          fi
+        run: cargo build --release --target ${{ matrix.job.target }}
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
@@ -101,7 +95,6 @@ jobs:
         uses: actions/attest-build-provenance@v2
         with:
           subject-path: target/${{ matrix.job.target }}/release/${{ matrix.job.bin }}
-
 
   actions-timeline:
     needs: [test, build]
