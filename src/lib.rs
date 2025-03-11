@@ -143,7 +143,7 @@
 //! If you have wasm runtime (ex. wasmtime), you can execute `junit2json.wasm` that can download from [GitHub Releases](https://github.com/Kesin11/junit2json-rs/releases) instead of native binary.
 //!
 //! ```
-//! wasmtime junit2json.wasm --dir=. -- -p <junit_xml_file>
+//! wasmtime --dir=. junit2json.wasm -- -p <junit_xml_file>
 //! ```
 //!
 

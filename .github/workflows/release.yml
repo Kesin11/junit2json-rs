@@ -102,8 +102,8 @@ jobs:
       - name: Build
         run: |
           if [[ "${{ matrix.job.target }}" == "wasm32-wasip1" ]]; then
-            cargo install cargo-wasi
-            cargo wasi build --release --target ${{ matrix.job.target }}
+            rustup target add wasm32-wasip1
+            cargo build --release --target ${{ matrix.job.target }}
           else
             cargo build --release --target ${{ matrix.job.target }}
           fi
