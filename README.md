@@ -1,4 +1,5 @@
 # junit2json-rs
+
 [![CI](https://github.com/Kesin11/junit2json-rs/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Kesin11/junit2json-rs/actions/workflows/ci.yml)
 [![Crates.io](https://img.shields.io/crates/v/junit2json.svg)](https://crates.io/crates/junit2json)
 
@@ -8,6 +9,7 @@ From a library perspective, it provides a function to serialize Junit XML to Str
 junit2json-rs is a reimplementation of [ts-junit2json](https://github.com/Kesin11/ts-junit2json) that is my previous work in TypeScript.
 
 # Purpose
+
 junit2json-rs is designed for uploading test result data to BigQuery or any other DB that supports JSON.
 
 Many languages and test frameworks support to output test result data as JUnit XML format, which is de fact standard in today.
@@ -16,16 +18,19 @@ On the other hand, most DBs do not support to import XML but support JSON.
 For this purpose, junit2json-rs provides a simple JUnit XML to JSON converter.
 
 # Install
+
 ```shell
 cargo install junit2json
 ```
 
 # Usage
+
 ```shell
 junit2json -p <junit_xml_file>
 ```
 
 # Output example
+
 ```json
 {
   "testsuites": {
@@ -108,6 +113,7 @@ junit2json -p <junit_xml_file>
 ```
 
 # With `jq` examples
+
 Show testsuites test count
 
 ```
@@ -127,6 +133,7 @@ junit2json <junit_xml_file> | jq .testsuites.testsuite[].testcase[].classname
 ```
 
 # Notice
+
 > [!IMPORTANT]
 > junit2json-rs has some major changes from ts-junit2json.
 > Most of the changes are to compliant with the JUnit XML Schema.
@@ -137,10 +144,12 @@ junit2json <junit_xml_file> | jq .testsuites.testsuite[].testcase[].classname
 - If XML has undefined tag, it will be ignored. ts-junit2json will be converted to JSON if possible.
 
 Referenced JUnit XML Schema:
+
 - <https://llg.cubic.org/docs/junit/>
 - <https://github.com/testmoapp/junitxml/tree/main>
 
 # CLI Options
+
 ```
 A tool convert JUnit XML format to JSON with Rust
 
@@ -157,19 +166,23 @@ Options:
 ```
 
 # WASI
+
 junit2json-rs also provides WASI executable.
 
 If you have wasm runtime (ex. wasmtime), you can execute `junit2json.wasm` that can download from [GitHub Releases](https://github.com/Kesin11/junit2json-rs/releases) instead of native binary.
 
 ```shell
-wasmtime junit2json.wasm --dir=. -- -p <junit_xml_file>
+wasmtime --dir=. junit2json.wasm -- -p <junit_xml_file>
 ```
 
 # Development
+
 ## Setup
+
 You can use DevContainer or Codespaces. Please see [devcontainer.json](./.devcontainer/devcontainer.json).
 
 ## Build
+
 Build native binary
 
 ```bash
@@ -180,10 +193,12 @@ cargo build --release
 Build WASI
 
 ```bash
-cargo wasi build --release
+rustup target add wasm32-wasip1
+cargo build --target wasm32-wasip1 --release
 ```
 
 ## Test
+
 ```bash
 # Run test
 cargo nextest run
@@ -195,4 +210,5 @@ cargo insta review
 ```
 
 # License
+
 MIT

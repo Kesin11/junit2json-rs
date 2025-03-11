@@ -8,6 +8,6 @@ curl -LsSf https://get.nexte.st/latest/linux | tar zxf - -C ${CARGO_HOME:-~/.car
 
 # wasm, wasi build tools.
 npm install -g wasm-pack
-cargo install cargo-wasi
+rustup target add wasm32-wasip1
 # wasm runtime (wasmtime)
 curl https://wasmtime.dev/install.sh -sSf | bash
