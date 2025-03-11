@@ -175,6 +175,21 @@ If you have wasm runtime (ex. wasmtime), you can execute `junit2json.wasm` that 
 wasmtime --dir=. junit2json.wasm -- -p <junit_xml_file>
 ```
 
+# Verify attestation
+
+We addd attestations to released binary. So everyone can verify binary attestations using `gh attestation verify`.
+
+ref: https://docs.github.com/en/actions/security-for-github-actions/using-artifact-attestations/using-artifact-attestations-to-establish-provenance-for-builds#verifying-artifact-attestations-with-the-github-cli
+
+Example commands for verify artifact that released v0.2.10
+
+```bash
+gh release download v0.2.10
+tar -xzvf junit2json-rs-0.2.10-aarch64-apple-darwin.tar.gz
+
+gh attestation verify junit2json -R Kesin11/junit2json-rs
+```
+
 # Development
 
 ## Setup
