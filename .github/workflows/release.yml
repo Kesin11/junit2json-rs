@@ -34,6 +34,7 @@ jobs:
     permissions:
       contents: write
       deployments: write
+      id-token: write
     if: github.event_name == 'workflow_dispatch'
     needs: [draft_release]
     steps:
@@ -57,10 +58,13 @@ jobs:
       - name: Setup cargo release
         run: cargo install cargo-release
 
+      # Trusted publish: https://crates.io/docs/trusted-publishing
+      - uses: rust-lang/crates-io-auth-action@v1
+        id: auth
       - name: Publish to crate.io
         run: cargo release --no-tag -vv --execute --no-confirm ${{ needs.draft_release.outputs.version_name }}
         env:
-          CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+          CARGO_REGISTRY_TOKEN: ${{ steps.auth.outputs.token }}
       - uses: release-drafter/release-drafter@v6
         with:
           publish: true
