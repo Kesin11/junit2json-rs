@@ -44,7 +44,7 @@ jobs:
         with:
           app-id: ${{ secrets.BYPASS_APP_ID }}
           private-key: ${{ secrets.BYPASS_APP_PRIVATE_KEY }}
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
           ref: ${{ github.ref }}
@@ -99,7 +99,7 @@ jobs:
     if: github.event_name == 'workflow_dispatch'
     needs: ["draft_release", "publish_release"]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Setup rust build target
         run: rustup target add ${{ matrix.job.target }}
 
@@ -115,6 +115,6 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Generate artifact attestation
-        uses: actions/attest-build-provenance@v2
+        uses: actions/attest-build-provenance@v3
         with:
           subject-path: target/${{ matrix.job.target }}/release/${{ matrix.job.bin }}

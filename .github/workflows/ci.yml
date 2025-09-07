@@ -20,7 +20,7 @@ jobs:
         run: |
           rustc --version
           cargo --version
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: Swatinem/rust-cache@v2
 
       # Execute
@@ -78,7 +78,7 @@ jobs:
         run: |
           rustc --version
           cargo --version
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: Swatinem/rust-cache@v2
       - name: Setup rust build target
         run: rustup target add ${{ matrix.job.target }}
@@ -92,7 +92,7 @@ jobs:
           name: ${{ matrix.job.target }}
           path: target/${{ matrix.job.target }}/release/${{ matrix.job.bin }}
       - name: Generate artifact attestation
-        uses: actions/attest-build-provenance@v2
+        uses: actions/attest-build-provenance@v3
         with:
           subject-path: target/${{ matrix.job.target }}/release/${{ matrix.job.bin }}
 
