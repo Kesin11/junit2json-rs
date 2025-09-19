@@ -18,7 +18,7 @@ quick-xml = { version = "0.37.0", features = ["serialize", "serde-types"] }
 clap = { version = "4.5.47", features = ["derive"] }
 
 [dev-dependencies]
-pretty_assertions = "1.4.0"
+pretty_assertions = "1.4.1"
 insta = { version = "1.39.0", features = ["json", "glob"] }
 
 [package.metadata.release]
