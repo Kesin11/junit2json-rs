@@ -28,10 +28,10 @@ input_file: tests/fixtures/cargo-nextest.xml
             "classname": "junit2json::serialize",
             "time": 0.008,
             "system-out": [
-              "running 1 test\ntest some_testsuite_property_are_empty ... FAILED\n\nfailures:\n\nfailures:\n    some_testsuite_property_are_empty\n\ntest result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.00s"
+              "\nrunning 1 test\ntest some_testsuite_property_are_empty ... FAILED\n\nfailures:\n\nfailures:\n    some_testsuite_property_are_empty\n\ntest result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.00s\n\n"
             ],
             "system-err": [
-              "thread 'some_testsuite_property_are_empty' panicked at 'assertion failed: `(left == right)`\n\n[1mDiff[0m [31m< left[0m / [32mright >[0m :\n Object {\n     \"testsuites\": Object {\n         \"testsuite\": Array [\n             Object {\n                 \"properties\": Object {\n                     \"property\": Array [\n                         Object {\n[31m<                            \"name\": String(\"hell\"),[0m\n[32m>                            \"name\": String(\"hell[0m[1;48;5;22;32mo[0m[32m\"),[0m\n                             \"value\": String(\"bonjour\"),\n                         },\n                     ],\n                 },\n             },\n         ],\n     },\n }\n\n', tests/serialize.rs:259:5\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace"
+              "thread 'some_testsuite_property_are_empty' panicked at 'assertion failed: `(left == right)`\n\n[1mDiff[0m [31m< left[0m / [32mright >[0m :\n Object {\n     \"testsuites\": Object {\n         \"testsuite\": Array [\n             Object {\n                 \"properties\": Object {\n                     \"property\": Array [\n                         Object {\n[31m<                            \"name\": String(\"hell\"),[0m\n[32m>                            \"name\": String(\"hell[0m[1;48;5;22;32mo[0m[32m\"),[0m\n                             \"value\": String(\"bonjour\"),\n                         },\n                     ],\n                 },\n             },\n         ],\n     },\n }\n\n', tests/serialize.rs:259:5\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n"
             ],
             "failure": {
               "type": "test failure",
