@@ -34,7 +34,7 @@ input_file: tests/fixtures/nunit-failure.xml
             "failure": {
               "message": "Assert.Equal() Failure\n          ↓ (pos 0)\nExpected: foge\nActual:   john\n          ↑ (pos 0)",
               "type": "failure",
-              "inner": "at Tutorial.Tests.PersonTest.Person_fname() in /Users/kesin/github/csharp-tutorial/tests/Tutorial.Tests/PersonTest.cs:line 23"
+              "inner": "   at Tutorial.Tests.PersonTest.Person_fname() in /Users/kesin/github/csharp-tutorial/tests/Tutorial.Tests/PersonTest.cs:line 23\n"
             }
           },
           {
