@@ -100,4 +100,4 @@ jobs:
     needs: [test, build]
     runs-on: ubuntu-24.04
     steps:
-      - uses: Kesin11/actions-timeline@v2
+      - uses: Kesin11/actions-timeline@v3
