@@ -427,7 +427,7 @@ dependencies = [
 
 [[package]]
 name = "junit2json"
-version = "0.2.13"
+version = "0.2.14"
 dependencies = [
  "clap",
  "insta",
