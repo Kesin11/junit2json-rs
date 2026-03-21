@@ -39,7 +39,7 @@ jobs:
     needs: [draft_release]
     steps:
       # Use GitHub App for bypass ruleset guard when git push by cargo release
-      - uses: actions/create-github-app-token@v2
+      - uses: actions/create-github-app-token@v3
         id: app-token
         with:
           app-id: ${{ secrets.BYPASS_APP_ID }}
