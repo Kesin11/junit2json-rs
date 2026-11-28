@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 jobs:
   draft_release:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     permissions:
       contents: write
       deployments: write
@@ -30,7 +30,7 @@ jobs:
     environment:
       name: prod
       url: https://crates.io/crates/junit2json
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     permissions:
       contents: write
       deployments: write
